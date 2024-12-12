@@ -46,8 +46,8 @@ const Intro = () => (
   </div>
 )
 
-const Skill = ({ skill, color }) => (
-  <div className="skill" style={{ backgroundColor: color }}>
+const Skill = ({ skill, backgroundColor }) => (
+  <div className="skill" style={{ backgroundColor }}>
     <span>{skill}</span>
   </div>
 )
@@ -55,7 +55,7 @@ const Skill = ({ skill, color }) => (
 const SkillList = () => (
   <div className="skill-list">
     {skills.map(item => (
-      <Skill skill={item.skill} bgColor={item.color} />
+      <Skill skill={item.skill} backgroundColor={item.color} />
     ))}
   </div>
 )
