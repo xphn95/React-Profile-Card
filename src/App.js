@@ -33,6 +33,14 @@ const skills = [
   }
 ]
 
+const levelIcon = new Map(
+  Object.entries({
+    beginner: '👶',
+    intermediate: '👍',
+    advanced: '💪'
+  })
+)
+
 const Avatar = () => <img className="avatar" src="jonas.jpeg" />
 
 const Intro = () => (
@@ -46,16 +54,17 @@ const Intro = () => (
   </div>
 )
 
-const Skill = ({ skill, backgroundColor }) => (
+const Skill = ({ skillStyle: { skill, color: backgroundColor, level } }) => (
   <div className="skill" style={{ backgroundColor }}>
     <span>{skill}</span>
+    <span>{levelIcon.get(level)}</span>
   </div>
 )
 
 const SkillList = () => (
   <div className="skill-list">
     {skills.map(item => (
-      <Skill skill={item.skill} backgroundColor={item.color} />
+      <Skill skillStyle={item} key={item.skill} />
     ))}
   </div>
 )
